@@ -3,11 +3,10 @@ import {
   deleteUserNotificationDetails,
 } from "@/lib/notification";
 import { sendFrameNotification } from "@/lib/notification-client";
+import { APP_NAME } from "@/utils/config";
 import { http } from "viem";
 import { createPublicClient } from "viem";
 import { optimism } from "viem/chains";
-
-const appName = process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME;
 
 const KEY_REGISTRY_ADDRESS = "0x00000000Fc1237824fb747aBDE0FF18990E59b7e";
 
@@ -88,8 +87,8 @@ export async function POST(request: Request) {
         await setUserNotificationDetails(fid, event.notificationDetails);
         await sendFrameNotification({
           fid,
-          title: `Welcome to ${appName}`,
-          body: `Thank you for adding ${appName}`,
+          title: `Welcome to ${APP_NAME}`,
+          body: `Thank you for adding ${APP_NAME}`,
         });
       } else {
         await deleteUserNotificationDetails(fid);
@@ -106,8 +105,8 @@ export async function POST(request: Request) {
       await setUserNotificationDetails(fid, event.notificationDetails);
       await sendFrameNotification({
         fid,
-        title: `Welcome to ${appName}`,
-        body: `Thank you for enabling notifications for ${appName}`,
+        title: `Welcome to ${APP_NAME}`,
+        body: `Thank you for enabling notifications for ${APP_NAME}`,
       });
 
       break;

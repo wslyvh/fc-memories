@@ -18,16 +18,15 @@ export async function generateMetadata(): Promise<Metadata> {
     description: APP_DESCRIPTION,
     other: {
       "fc:frame": JSON.stringify({
-        version: process.env.NEXT_PUBLIC_VERSION,
-        imageUrl: process.env.NEXT_PUBLIC_IMAGE_URL,
+        version: "1",
+        imageUrl: `${APP_URL}/image.png`,
         button: {
           title: `Launch ${APP_NAME}`,
           action: {
             type: "launch_frame",
             name: APP_NAME,
             url: APP_URL,
-            splashImageUrl: process.env.NEXT_PUBLIC_SPLASH_IMAGE_URL,
-            splashBackgroundColor: `#${process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR}`,
+            splashImageUrl: `${APP_URL}/splash.png`,
           },
         },
       }),

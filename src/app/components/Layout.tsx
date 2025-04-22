@@ -14,12 +14,12 @@ import {
 } from "react";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
-import { SOCIAL_GITHUB, APP_NAME, APP_EMOJI } from "@/utils/config";
+import { SOCIAL_GITHUB } from "@/utils/config";
 
 export default function Layout({ children }: PropsWithChildren) {
   const { setFrameReady, isFrameReady, context } = useMiniKit();
   const [frameAdded, setFrameAdded] = useState(false);
-  const [account, setAccount] = useState<string | null>(null);
+  const [account] = useState<string | null>(null);
 
   const addFrame = useAddFrame();
   const openUrl = useOpenUrl();
