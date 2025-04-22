@@ -17,6 +17,12 @@ export function Providers(props: { children: ReactNode }) {
           name: APP_NAME,
           logo: "/icon.png",
         },
+        wallet: {
+          display: "modal",
+          supportedWallets: {
+            rabby: true,
+          },
+        },
       }}
     >
       {props.children}

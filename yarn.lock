@@ -145,12 +145,30 @@
     ox "^0.4.4"
     zod "^3.24.1"
 
+"@farcaster/frame-core@0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@farcaster/frame-core/-/frame-core-0.0.32.tgz#7d34b698aebde91d01d1a6fe221684dccf9dbb55"
+  integrity sha512-WkOa3Eq2cVQpHuykUn538SJNea7DZul+MqjjGjIZGjo0ScjRR09Ql9QmxG1twsRQrsp0jokpBCIMBBHnhwoaxQ==
+  dependencies:
+    ox "^0.4.4"
+    zod "^3.24.1"
+
 "@farcaster/frame-sdk@^0.0.28":
   version "0.0.28"
   resolved "https://registry.yarnpkg.com/@farcaster/frame-sdk/-/frame-sdk-0.0.28.tgz#0318c46e87280a893563598dbc7bc717e4031339"
   integrity sha512-raxJkwy9oNDTodyfcY8DNvQNkt/9wdWGIqGnXW70biBPfVxfdG9WAqy1Bm552KSynd0+hGzcrQVwkMNzvpSZBg==
   dependencies:
     "@farcaster/frame-core" "0.0.26"
+    comlink "^4.4.2"
+    eventemitter3 "^5.0.1"
+    ox "^0.4.4"
+
+"@farcaster/frame-sdk@^0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@farcaster/frame-sdk/-/frame-sdk-0.0.35.tgz#d21a99fb1e564af7ffe1d91326d16136de200a00"
+  integrity sha512-AXRUNWjY6y5XwqzfnKuZVo5bBboq+nSDVLTOHGiJ6Ie2aU4SF+1nwu7U8ttB1JQl6Yzn3foe7Qjnr9Ij5VfccA==
+  dependencies:
+    "@farcaster/frame-core" "0.0.32"
     comlink "^4.4.2"
     eventemitter3 "^5.0.1"
     ox "^0.4.4"
@@ -1804,6 +1822,11 @@ date-fns@^2.29.3:
   integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
   dependencies:
     "@babel/runtime" "^7.21.0"
+
+dayjs@^1.11.13:
+  version "1.11.13"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
+  integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
 
 debug@^3.2.7:
   version "3.2.7"
