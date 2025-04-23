@@ -4,11 +4,11 @@ import { useAddFrame, useMiniKit } from "@coinbase/onchainkit/minikit";
 import { useMemo, useState, useCallback } from "react";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
+import { APP_EMOJI, APP_NAME } from "@/utils/config";
 
 export function Header() {
   const { context } = useMiniKit();
   const [frameAdded, setFrameAdded] = useState(false);
-  const [account] = useState<string>(() => context?.client.account ?? "");
 
   const addFrame = useAddFrame();
 
@@ -46,14 +46,10 @@ export function Header() {
 
   return (
     <header className="flex justify-between items-center mb-3 h-11">
-      <div>
-        <div className="flex items-center space-x-2">
-          {account && (
-            <div className="flex items-center space-x-2">
-              <span>{account}</span>
-            </div>
-          )}
-        </div>
+      <div className="flex items-center space-x-2">
+        <span className="text-lg font-bold">
+          {APP_EMOJI} {APP_NAME}
+        </span>
       </div>
       <div>{saveFrameButton}</div>
     </header>
