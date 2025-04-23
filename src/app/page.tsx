@@ -1,6 +1,6 @@
 "use client";
 
-import { APP_NAME, APP_DESCRIPTION, APP_EMOJI } from "@/utils/config";
+import { Memory } from "./components/Memory";
 import { Account } from "./components/Account";
 
 export default function Page() {
@@ -8,6 +8,7 @@ export default function Page() {
     <div className="space-y-6 animate-fade-in">
       <Account />
 
+      <Memory />
     </div>
   );
 }
