@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "tunnel": "ngrok http 3000 --log=stdout",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
