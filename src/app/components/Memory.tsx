@@ -39,9 +39,19 @@ export function Memory() {
 
   if (loading) return <Loading />;
 
-  if (error) return <div className="text-center">Error loading casts</div>;
+  if (error)
+    return (
+      <div className="text-center text-gray-500 text-sm">
+        Error loading casts
+      </div>
+    );
 
-  if (casts?.length === 0) return null;
+  if (casts?.length === 0)
+    return (
+      <div className="text-center text-gray-500 text-sm">
+        No casts found for this user.
+      </div>
+    );
 
   return (
     <>
