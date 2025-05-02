@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 
 export async function getCasts(fid: number) {
+  console.log("getCasts", fid);
   if (!process.env.NEYNAR_API_KEY) {
     console.error("NEYNAR_API_KEY is required");
     return [];
@@ -20,6 +21,7 @@ export async function getCasts(fid: number) {
 }
 
 export async function getPopularCasts(fid: number) {
+  console.log("getPopularCasts", fid);
   if (!process.env.NEYNAR_API_KEY) {
     console.error("NEYNAR_API_KEY is required");
     return [];

@@ -400,7 +400,7 @@ export function Header() {
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
             <div className="w-[100px] h-[100px] bg-white rounded-xl shadow-[0_0_20px_5px_rgba(0,0,0,0.10)] flex flex-col items-center justify-center relative">
               {/* Thick top border for calendar */}
-              <div className="absolute top-0 left-0 right-0 h-6 bg-[#ff6188] rounded-t-xl flex items-center justify-center">
+              <div className="absolute top-0 left-0 right-0 h-5 bg-[#ff6188] rounded-t-xl flex items-center justify-center">
                 <div className="flex gap-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                   <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -418,11 +418,9 @@ export function Header() {
       </div>
 
       {/* Bottom info bar */}
-      <div className="w-full h-[60px] bg-[#f0ebff] flex items-center justify-center">
+      <div className="w-full h-[60px] bg-[#f0ebff] flex items-center justify-center mb-8">
         <div className="flex items-center gap-2">
-          <div className="text-[#8660cc] font-bold text-xl">
-            1 YEAR AGO TODAY
-          </div>
+          <div className="text-[#8660cc] font-bold">Farcaster Memories</div>
         </div>
       </div>
     </div>
