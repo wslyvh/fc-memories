@@ -21,9 +21,9 @@ export default function Layout({ children }: PropsWithChildren) {
       <Header />
 
       <div className="w-full max-w-xl mx-auto">
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 px-4">{children}</main>
 
-        <footer className="mt-2 pt-4 flex justify-center">
+        <footer className="mt-2 mb-4 pt-4 flex justify-center">
           <Button
             variant="ghost"
             size="sm"

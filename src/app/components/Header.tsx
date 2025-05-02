@@ -418,9 +418,11 @@ export function Header() {
       </div>
 
       {/* Bottom info bar */}
-      <div className="w-full h-[60px] bg-[#f0ebff] flex items-center justify-center mb-8">
+      <div className="w-full h-[60px] bg-[#f0ebff] flex items-center justify-center">
         <div className="flex items-center gap-2">
-          <div className="text-[#8660cc] font-bold">Farcaster Memories</div>
+          <div className="text-[#8660cc] font-bold text-xl">
+            Farcaster Memories
+          </div>
         </div>
       </div>
     </div>
