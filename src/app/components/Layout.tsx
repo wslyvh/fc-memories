@@ -1,14 +1,13 @@
 "use client";
 
 import { PropsWithChildren, useEffect } from "react";
-import { useMiniKit, useOpenUrl } from "@coinbase/onchainkit/minikit";
+import { useMiniKit } from "@coinbase/onchainkit/minikit";
 import { SOCIAL_GITHUB } from "@/utils/config";
-import { Button } from "./Button";
 import { Header } from "./Header";
+import Link from "next/link";
 
 export default function Layout({ children }: PropsWithChildren) {
   const { setFrameReady, isFrameReady } = useMiniKit();
-  const openUrl = useOpenUrl();
 
   useEffect(() => {
     if (!isFrameReady) {
@@ -24,14 +23,14 @@ export default function Layout({ children }: PropsWithChildren) {
         <main className="flex-1 px-4">{children}</main>
 
         <footer className="mt-2 mb-4 pt-4 flex justify-center">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-[var(--ock-text-foreground-muted)] text-xs"
-            onClick={() => openUrl(`https://github.com/${SOCIAL_GITHUB}`)}
+          <Link
+            href={`https://github.com/${SOCIAL_GITHUB}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs"
           >
             Built with ❤️ by wslyvh
-          </Button>
+          </Link>
         </footer>
       </div>
     </div>

@@ -12,7 +12,7 @@ export function MemoryCard(props: Props) {
 
   return (
     <div className="w-full max-w-[600px] mx-auto">
-      <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
+      <div className="bg-white rounded-2xl shadow-md overflow-hidden p-4 md:p-8">
         {/* Author info */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-12 h-12 bg-[#f0ebff] overflow-hidden flex-shrink-0 border-2 border-[#f0ebff] rounded-full">
@@ -45,11 +45,13 @@ export function MemoryCard(props: Props) {
           <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-[#f0ebff] rounded-lg -z-10"></div>
 
           {/* Content */}
-          <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm relative z-10">
-            <p className="text-gray-800 text-lg leading-relaxed">{cast.text}</p>
+          <div className="bg-white border border-gray-100 rounded-xl p-4 md:p-6 shadow-sm relative z-10">
+            <p className="text-gray-800 text-base md:text-lg leading-relaxed">
+              {cast.text}
+            </p>
 
             {/* Engagement indicators */}
-            <div className="flex items-center gap-2 text-sm mt-8">
+            <div className="flex items-center gap-2 text-sm mt-4 md:mt-8">
               <div className="flex items-center gap-2 w-14">
                 <div className="rounded-lg bg-white flex items-center justify-center">
                   <svg
