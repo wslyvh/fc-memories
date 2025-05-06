@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { PropsWithChildren } from "react";
-import { APP_URL, APP_NAME, APP_DESCRIPTION } from "@/utils/config";
+import { APP_URL, APP_NAME, APP_DESCRIPTION, APP_EMOJI } from "@/utils/config";
 import Layout from "./components/Layout";
 import { Providers } from "./providers";
 import "@coinbase/onchainkit/styles.css";
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
         version: "1",
         imageUrl: `${APP_URL}/image.png`,
         button: {
-          title: `Launch ${APP_NAME}`,
+          title: `Launch ${APP_NAME} ${APP_EMOJI}`,
           action: {
             type: "launch_frame",
             name: APP_NAME,
