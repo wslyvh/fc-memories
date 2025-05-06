@@ -2,7 +2,7 @@ name: Daily Farcaster Notification
 
 on:
   schedule:
-    - cron: "0 15 * * *"
+    - cron: "0 13 * * *"
   workflow_dispatch:
 
 jobs:
