@@ -53,7 +53,7 @@ export function SaveFrame() {
 
     if (frameAdded) {
       return (
-        <div className="flex items-center space-x-1 text-sm font-medium text-[#0052FF] animate-fade-out">
+        <div className="text-sm font-medium text-green-600 pr-4 animate-fade-out">
           Saved
         </div>
       );
