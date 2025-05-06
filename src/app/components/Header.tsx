@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { SaveFrame } from "./Save";
 
 export function Header() {
   const today = new Date();
@@ -418,11 +419,14 @@ export function Header() {
       </div>
 
       {/* Bottom info bar */}
-      <div className="w-full h-[60px] bg-[#f0ebff] flex items-center justify-center">
-        <div className="flex items-center gap-2">
+      <div className="w-full max-w-xl mx-auto relative h-[60px] bg-[#f0ebff] flex items-center justify-center">
+        <div className="flex items-center gap-2 justify-center w-full">
           <div className="text-[#8660cc] font-bold text-xl">
             Farcaster Memories
           </div>
+        </div>
+        <div className="absolute right-0 top-0 h-full flex items-center pt-1">
+          <SaveFrame />
         </div>
       </div>
     </div>
