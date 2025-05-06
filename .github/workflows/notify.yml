@@ -22,7 +22,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn
 
       - name: Run daily notification script
-        run: npx tsx scripts/daily-notify.ts
+        run: yarn notify
