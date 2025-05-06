@@ -29,7 +29,7 @@ async function main() {
       await sendFrameNotification({
         fid,
         title: `You have new memories ${APP_EMOJI}`,
-        body: `Look back at your memories from ${casts.length} years.`,
+        body: `Look back at your memories from the past ${casts.length} years.`,
       });
     }
   }
