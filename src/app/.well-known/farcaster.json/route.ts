@@ -13,6 +13,7 @@ export async function GET() {
       homeUrl: APP_URL,
       iconUrl: `${APP_URL}/icon.png`,
       splashImageUrl: `${APP_URL}/splash.png`,
+      splashBackgroundColor: "#f0ebff",
       webhookUrl: `${APP_URL}/api/webhook`,
     },
   });

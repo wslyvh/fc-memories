@@ -27,6 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
             name: APP_NAME,
             url: APP_URL,
             splashImageUrl: `${APP_URL}/splash.png`,
+            splashBackgroundColor: "#f0ebff",
           },
         },
       }),
