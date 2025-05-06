@@ -56,7 +56,7 @@ export function Memory() {
   if (casts?.length === 0)
     return (
       <div className="text-center text-gray-500 text-sm">
-        No casts found for this user.
+        No casts found on this day in the past year(s).
       </div>
     );
 
