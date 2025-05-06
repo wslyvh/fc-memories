@@ -1,0 +1,28 @@
+name: Daily Farcaster Notification
+
+on:
+  schedule:
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      NEYNAR_API_KEY: ${{ secrets.NEYNAR_API_KEY }}
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+      REDIS_TOKEN: ${{ secrets.REDIS_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run daily notification script
+        run: npx tsx scripts/daily-notify.ts

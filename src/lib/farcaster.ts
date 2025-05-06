@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import "dotenv/config";
 
 export async function getCasts(fid: number) {
   console.log("getCasts", fid);

@@ -1,8 +1,36 @@
 import type { FrameNotificationDetails } from "@farcaster/frame-sdk";
 import { redis } from "./redis";
 import { APP_NAME } from "@/utils/config";
+
+interface NotificationSubscription {
+  fid: string;
+  url: string;
+  token: string;
+}
+
 function getUserNotificationDetailsKey(fid: number): string {
   return `${APP_NAME}:user:${fid}`;
+}
+
+export async function getAllUserNotificationDetails(): Promise<
+  NotificationSubscription[]
+> {
+  if (!redis) {
+    return [];
+  }
+
+  const keys = await redis.keys(`${APP_NAME}:user:*`);
+  const notificationDetails =
+    await redis.mget<FrameNotificationDetails[]>(keys);
+
+  return keys.map((key, idx) => {
+    const fid = key.replace(`${APP_NAME}:user:`, "");
+    return {
+      fid,
+      url: notificationDetails[idx].url,
+      token: notificationDetails[idx].token,
+    };
+  });
 }
 
 export async function getUserNotificationDetails(

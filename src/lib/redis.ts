@@ -1,4 +1,5 @@
 import { Redis } from "@upstash/redis";
+import "dotenv/config";
 
 if (!process.env.REDIS_URL || !process.env.REDIS_TOKEN) {
   console.warn(
