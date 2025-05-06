@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: APP_DESCRIPTION,
     other: {
       "fc:frame": JSON.stringify({
-        version: "1",
+        version: "next",
         imageUrl: `${APP_URL}/image.png`,
         button: {
           title: `Launch ${APP_NAME} ${APP_EMOJI}`,

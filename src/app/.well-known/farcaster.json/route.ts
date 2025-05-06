@@ -8,7 +8,7 @@ export async function GET() {
       signature: process.env.FARCASTER_SIGNATURE,
     },
     frame: {
-      version: "1",
+      version: "next",
       name: APP_NAME,
       homeUrl: APP_URL,
       iconUrl: `${APP_URL}/icon.png`,
