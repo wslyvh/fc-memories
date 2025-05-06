@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 export function Memory() {
   const { context } = useMiniKit();
   const searchParams = useSearchParams();
-  const fid = context?.user?.fid ?? searchParams.get("fid") ?? 3;
+  const fid = context?.user?.fid ?? searchParams.get("fid");
   const [casts, setCasts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -34,8 +34,15 @@ export function Memory() {
       }
     }
 
-    fetchCasts();
-  }, [context?.user]);
+    if (fid) {
+      fetchCasts();
+    }
+  }, [fid]);
+
+  if (!fid)
+    return (
+      <div className="text-center text-gray-500 text-sm">No fid provided</div>
+    );
 
   if (loading) return <Loading />;
 
