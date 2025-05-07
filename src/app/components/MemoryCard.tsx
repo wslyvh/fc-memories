@@ -1,3 +1,5 @@
+import { APP_EMOJI } from "@/utils/config";
+import sdk from "@farcaster/frame-sdk";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Link from "next/link";
@@ -88,7 +90,7 @@ export function MemoryCard(props: Props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Cast
+              View
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4"
@@ -101,6 +103,33 @@ export function MemoryCard(props: Props) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M17 7L7 17M17 7h-6m6 0v6"
+                />
+              </svg>
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 text-sm inline-flex items-center gap-1"
+              onClick={async () => {
+                console.log("Recasting", cast);
+                await sdk.actions.composeCast({
+                  text: `Check out this banger from ${dayjs(cast.timestamp).format("YYYY")} ${APP_EMOJI}`,
+                  embeds: [`https://warpcast.com/~/conversations/${cast.hash}`],
+                });
+              }}
+            >
+              Recast
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 />
               </svg>
             </Link>
