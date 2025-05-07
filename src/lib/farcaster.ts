@@ -21,16 +21,16 @@ export async function getCasts(fid: number) {
   return data.result.casts;
 }
 
-export async function getPopularCasts(fid: number) {
+export async function getPopularCasts(fid: number, historical = true) {
   console.log("getPopularCasts", fid);
   if (!process.env.NEYNAR_API_KEY) {
     console.error("NEYNAR_API_KEY is required");
     return [];
   }
 
-  const yearCasts = [];
+  let yearCasts = [];
   const startYear = 2021;
-  const currentDate = dayjs(); // dayjs("2025-07-27");
+  const currentDate = dayjs(); // dayjs("2025-05-02");
   const currentYear = currentDate.year();
   const currentMonth = currentDate.month() + 1; // months are 0-indexed
   const currentDay = currentDate.date();
@@ -67,5 +67,9 @@ export async function getPopularCasts(fid: number) {
     });
   }
 
-  return yearCasts.reverse();
+  if (historical) {
+    yearCasts = yearCasts.filter((cast: any) => cast.year !== currentYear);
+  }
+
+  return yearCasts;
 }

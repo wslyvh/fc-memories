@@ -21,11 +21,7 @@ export function Memory() {
         const res = await fetch(`/api/memory?fid=${fid}`);
         const data = await res.json();
 
-        const casts = data.casts.filter((cast: any) =>
-          dayjs(cast.cast.timestamp).isBefore(dayjs().subtract(1, "year")),
-        );
-
-        setCasts(casts);
+        setCasts(data.casts);
       } catch (err) {
         console.error(err);
         setError(true);

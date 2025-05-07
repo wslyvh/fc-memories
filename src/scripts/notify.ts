@@ -17,6 +17,8 @@ async function main() {
       continue;
     }
 
+    console.log("Sending notification to", fid);
+
     if (casts.length === 1) {
       await sendFrameNotification({
         fid,
