@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MemoryCard } from "./MemoryCard";
 import { Loading } from "./Loading";
-import dayjs from "dayjs";
 
 export function Memory() {
   const { context } = useMiniKit();
