@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { PropsWithChildren } from "react";
 import { APP_URL, APP_NAME, APP_DESCRIPTION, APP_EMOJI } from "@/utils/config";
-import Layout from "./components/Layout";
+import Layout from "@/components/Layout";
 import { Providers } from "./providers";
 import "@coinbase/onchainkit/styles.css";
 import "./globals.css";
