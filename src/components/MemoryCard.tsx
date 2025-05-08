@@ -87,7 +87,10 @@ export function MemoryCard(props: Props) {
             onClick={async () => {
               await sdk.actions.composeCast({
                 text: `Check out this banger from ${dayjs(cast.timestamp).format("YYYY")} ${APP_EMOJI}`,
-                embeds: [`${APP_URL}/cast/${cast.hash}`],
+                embeds: [
+                  `https://warpcast.com/~/conversations/${cast.hash}`,
+                  `${APP_URL}/cast/${cast.hash}`,
+                ],
               });
             }}
           >
