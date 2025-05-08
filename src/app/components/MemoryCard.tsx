@@ -1,4 +1,4 @@
-import { APP_EMOJI } from "@/utils/config";
+import { APP_EMOJI, APP_URL } from "@/utils/config";
 import sdk from "@farcaster/frame-sdk";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -52,27 +52,28 @@ export function MemoryCard(props: Props) {
               {cast.text}
             </p>
 
-            {/* Engagement indicators */}
-            <div className="flex items-center gap-2 text-sm mt-4 md:mt-8">
-              <div className="flex items-center gap-2 w-14">
-                <div className="rounded-lg bg-white flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                      fill="#8660cc"
-                      opacity={0.4}
-                    />
-                  </svg>
-                </div>
+            <div className="flex flex-row justify-between items-center gap-2 mt-4 md:mt-8">
+              <div className="flex items-center gap-2 text-sm">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                    fill="#8660cc"
+                    opacity={0.4}
+                  />
+                </svg>
                 <span className="text-[#8660cc]">
                   {cast.reactions.likes_count}
                 </span>
+              </div>
+
+              <div className="text-[#8660cc] font-bold">
+                Posted {dayjs(cast.timestamp).fromNow()}
               </div>
             </div>
           </div>
@@ -80,60 +81,54 @@ export function MemoryCard(props: Props) {
 
         {/* Memory metadata */}
         <div className="flex flex-wrap items-center justify-between">
-          <div className="text-[#8660cc] font-bold">
-            Posted {dayjs(cast.timestamp).fromNow()}
-          </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href={`https://warpcast.com/${cast.author.username}/${cast.hash}`}
-              className="text-gray-500 text-sm inline-flex items-center gap-1"
-              target="_blank"
-              rel="noopener noreferrer"
+          <Link
+            href="#"
+            className="text-gray-500 text-sm inline-flex items-center gap-1"
+            onClick={async () => {
+              await sdk.actions.composeCast({
+                text: `Check out this banger from ${dayjs(cast.timestamp).format("YYYY")} ${APP_EMOJI}`,
+                embeds: [`${APP_URL}?hash=${cast.hash}`],
+              });
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              View
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 7L7 17M17 7h-6m6 0v6"
-                />
-              </svg>
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-500 text-sm inline-flex items-center gap-1"
-              onClick={async () => {
-                console.log("Recasting", cast);
-                await sdk.actions.composeCast({
-                  text: `Check out this banger from ${dayjs(cast.timestamp).format("YYYY")} ${APP_EMOJI}`,
-                  embeds: [`https://warpcast.com/~/conversations/${cast.hash}`],
-                });
-              }}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+            Share
+          </Link>
+          <Link
+            href={`https://warpcast.com/${cast.author.username}/${cast.hash}`}
+            className="text-gray-500 text-sm inline-flex items-center gap-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              Recast
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-            </Link>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 7L7 17M17 7h-6m6 0v6"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </div>

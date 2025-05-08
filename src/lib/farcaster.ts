@@ -1,6 +1,26 @@
 import dayjs from "dayjs";
 import "dotenv/config";
 
+export async function getCast(hash: string) {
+  console.log("getCast", hash);
+  if (!process.env.NEYNAR_API_KEY) {
+    console.error("NEYNAR_API_KEY is required");
+    return null;
+  }
+
+  const response = await fetch(
+    `https://api.neynar.com/v2/farcaster/cast?identifier=${hash}&type=hash`,
+    {
+      headers: {
+        "x-api-key": process.env.NEYNAR_API_KEY,
+      },
+    },
+  );
+
+  const data = await response.json();
+  return data.cast;
+}
+
 export async function getCasts(fid: number) {
   console.log("getCasts", fid);
   if (!process.env.NEYNAR_API_KEY) {
