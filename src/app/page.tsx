@@ -1,8 +1,8 @@
 "use client";
 
+import { Suspense } from "react";
 import { Memory } from "@/components/Memory";
 import { Loading } from "@/components/Loading";
-import { Suspense } from "react";
 
 export default function Page() {
   return (
