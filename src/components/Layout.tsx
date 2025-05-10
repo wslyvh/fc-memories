@@ -2,7 +2,7 @@
 
 import { PropsWithChildren, useEffect } from "react";
 import { useMiniKit } from "@coinbase/onchainkit/minikit";
-import { SOCIAL_GITHUB } from "@/utils/config";
+import { SOCIAL_GITHUB, SOCIAL_FARCASTER } from "@/utils/config";
 import { Header } from "./Header";
 import Link from "next/link";
 
@@ -29,7 +29,14 @@ export default function Layout({ children }: PropsWithChildren) {
             rel="noopener noreferrer"
             className="text-xs"
           >
-            Built with ❤️ by wslyvh
+            Built with ❤️ by{" "}
+            <Link
+              href={`https://warpcast.com/${SOCIAL_FARCASTER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {SOCIAL_FARCASTER}
+            </Link>
           </Link>
         </footer>
       </div>
