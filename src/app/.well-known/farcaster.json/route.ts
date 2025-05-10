@@ -15,6 +15,8 @@ export async function GET() {
       splashImageUrl: `${APP_URL}/splash.png`,
       splashBackgroundColor: "#f0ebff",
       webhookUrl: `${APP_URL}/api/webhook`,
+      primaryCategory: "social",
+      tags: ["social", "memories", "community"],
     },
   });
 }
