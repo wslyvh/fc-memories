@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       "fc:frame": JSON.stringify({
         version: "next",
-        imageUrl: `${APP_URL}/api/og`,
+        imageUrl: `${APP_URL}/image.png`,
         button: {
           title: `Launch ${APP_NAME} ${APP_EMOJI}`,
           action: {

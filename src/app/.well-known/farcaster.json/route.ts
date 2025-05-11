@@ -12,6 +12,7 @@ export async function GET() {
       name: APP_NAME,
       homeUrl: APP_URL,
       iconUrl: `${APP_URL}/icon.png`,
+      imageUrl: `${APP_URL}/image.png`,
       splashImageUrl: `${APP_URL}/splash.png`,
       splashBackgroundColor: "#f0ebff",
       webhookUrl: `${APP_URL}/api/webhook`,
