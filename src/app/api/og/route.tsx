@@ -10,9 +10,20 @@ dayjs.extend(relativeTime);
 // Cache for 24 hours
 export const revalidate = 86400;
 
+function getTextSize(text: string) {
+  if (text.length > 200) {
+    return "text-xl";
+  }
+  if (text.length > 100) {
+    return "text-2xl";
+  }
+
+  return "text-3xl";
+}
+
 function processText(text: string) {
   // Split text into parts based on mentions and links
-  const parts = text.split(/(@\w+|https?:\/\/[^\s]+)/g);
+  const parts = text.split(/(@[\w.]+|https?:\/\/[^\s]+)/g);
 
   return parts.map((part, index) => {
     if (part.startsWith("@") || part.startsWith("http")) {
@@ -116,12 +127,20 @@ export async function GET(request: Request) {
 
                 {/* Cast content */}
                 <div tw="flex flex-col bg-white border border-2 border-gray-100 px-4 rounded-xl">
-                  <div tw="flex flex-col text-xl text-gray-800 h-[340px] overflow-hidden relative">
+                  <div
+                    tw={`flex flex-col  text-gray-800 h-[340px] leading-relaxed overflow-hidden relative ${getTextSize(
+                      cast.text,
+                    )}`}
+                  >
                     {cast.text
                       .replace(/\n{2,}/g, "\n")
                       .split("\n")
                       .map((line: string, i: number) => (
-                        <p key={i} style={{ whiteSpace: "pre-wrap" }}>
+                        <p
+                          key={i}
+                          tw="flex flex-wrap"
+                          style={{ whiteSpace: "pre-wrap" }}
+                        >
                           {processText(line)}
                         </p>
                       ))}
