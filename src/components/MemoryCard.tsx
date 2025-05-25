@@ -88,7 +88,7 @@ export function MemoryCard(props: Props) {
               await sdk.actions.composeCast({
                 text: `Check out this banger from ${dayjs(cast.timestamp).format("YYYY")} ${APP_EMOJI}`,
                 embeds: [
-                  `https://warpcast.com/~/conversations/${cast.hash}`,
+                  `https://farcaster.xyz/~/conversations/${cast.hash}`,
                   `${APP_URL}/cast/${cast.hash}`,
                 ],
               });
@@ -111,7 +111,7 @@ export function MemoryCard(props: Props) {
             Share
           </Link>
           <Link
-            href={`https://warpcast.com/${cast.author.username}/${cast.hash}`}
+            href={`https://farcaster.xyz/${cast.author.username}/${cast.hash}`}
             className="text-gray-500 text-sm inline-flex items-center gap-1"
             target="_blank"
             rel="noopener noreferrer"
