@@ -96,3 +96,4 @@
 2025-11-28: 1 notifications sent
 2025-11-29: 2 notifications sent
 2025-11-30: 1 notifications sent
+2025-12-01: 2 notifications sent
