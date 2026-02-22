@@ -177,3 +177,4 @@
 2026-02-19: 0 notifications sent
 2026-02-20: 0 notifications sent
 2026-02-21: 11 notifications sent
+2026-02-22: 27 notifications sent
