@@ -266,3 +266,4 @@
 2026-05-22: 39 notifications sent
 2026-05-23: 38 notifications sent
 2026-05-24: 36 notifications sent
+2026-05-25: 34 notifications sent
